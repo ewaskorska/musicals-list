@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Tags from "./Tags";
+import Musicals from "./Musicals";
+import items from "./data";
+
+const allTags = items.map(())
 
 function App() {
+  const [listItems, setListItems] = useState(items);
+  const [tags, setTags] = useState([]);
+
+  //to filtrowanie można zrobić po wielu wyrazach. Na razie niech będzie po jednym ale z listy
+  const filterItems = (tag) => {
+    if (tag === "all") {
+      setListItems(items);
+      return;
+    }
+    const newItems = items.filter((item) => {
+      return item.tags.includes(tag);
+    });
+    setListItems(newItems);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <section>
+        <div>
+          <h2>Fav Musicals List</h2>
+          <div className="underline"></div>
+        </div>
+        <Tags filterItems={filterItems}></Tags>
+        <Musicals items={listItems}></Musicals>
+      </section>
+    </main>
   );
 }
 
