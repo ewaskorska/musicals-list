@@ -3,11 +3,11 @@ import Tags from "./Tags";
 import Musicals from "./Musicals";
 import items from "./data";
 
-const allTags = items.map(())
+const allTags = ["all", ...new Set(items.map((item) => item.tags).flat())];
 
 function App() {
   const [listItems, setListItems] = useState(items);
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState(allTags);
 
   //to filtrowanie można zrobić po wielu wyrazach. Na razie niech będzie po jednym ale z listy
   const filterItems = (tag) => {
@@ -28,7 +28,12 @@ function App() {
           <h2>Fav Musicals List</h2>
           <div className="underline"></div>
         </div>
-        <Tags filterItems={filterItems}></Tags>
+        <Tags filterItems={filterItems} tags={tags}></Tags>
+        <button
+          onClick={() => (window.localStorage.chosenItems = JSON.stringify([]))}
+        >
+          Clear My list
+        </button>
         <Musicals items={listItems}></Musicals>
       </section>
     </main>

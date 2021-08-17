@@ -1,9 +1,15 @@
 import React from "react";
 
-const Tags = ({ filterItems }) => {
+const Tags = ({ filterItems, tags }) => {
   return (
     <div>
-      <button onClick={() => filterItems("tag10")}>button</button>
+      {tags.map((tag, index) => {
+        return (
+          <button type="button" key={index} onClick={() => filterItems(tag)}>
+            {tag}
+          </button>
+        );
+      })}
     </div>
   );
 };
