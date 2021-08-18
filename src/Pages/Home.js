@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Tags from "./Tags";
-import Musicals from "./Musicals";
-import items from "./data";
+import Tags from "../Tags";
+import MainList from "../MainList";
+import items from "../data";
 
 const allTags = ["all", ...new Set(items.map((item) => item.tags).flat())];
 
-function App() {
+function Home() {
   const [listItems, setListItems] = useState(items);
   const [tags, setTags] = useState(allTags);
 
@@ -34,10 +34,10 @@ function App() {
         >
           Clear My list
         </button>
-        <Musicals items={listItems}></Musicals>
+        <MainList items={listItems}></MainList>
       </section>
     </main>
   );
 }
 
-export default App;
+export default Home;

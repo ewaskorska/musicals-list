@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Musical = (props) => {
+const ListItem = (props) => {
   const { id, title, tags, img, desc } = props;
   const [isAdded, setIsAdded] = useState(false);
 
@@ -25,29 +26,37 @@ const Musical = (props) => {
     window.localStorage.chosenItems = JSON.stringify(updatedItems);
   };
 
+  const getTitleWithPlus = () => {
+    return title.replaceAll(" ", "+");
+  };
+  const url = `/musical/${getTitleWithPlus()}`;
+
+  console.log(title);
   return (
-    <article key={id}>
-      <div>
-        <img src={img} alt={title} />
-        <button onClick={handleClick}>
-          <i
-            className={
-              isAdded
-                ? `fas fa-clipboard-list on-list`
-                : `fas fa-clipboard-list not-on-list`
-            }
-          ></i>
-        </button>
-      </div>
-      <div>
-        <header>
-          <div>*****</div>
-          <h4>{title}</h4>
-        </header>
-        <p>{desc}</p>
-      </div>
-    </article>
+    <Link to={url}>
+      <article key={id}>
+        <div>
+          <img src={img} alt={title} />
+          <button onClick={handleClick}>
+            <i
+              className={
+                isAdded
+                  ? `fas fa-clipboard-list on-list`
+                  : `fas fa-clipboard-list not-on-list`
+              }
+            ></i>
+          </button>
+        </div>
+        <div>
+          <header>
+            <div>*****</div>
+            <h4>{title}</h4>
+          </header>
+          <p>{desc}</p>
+        </div>
+      </article>
+    </Link>
   );
 };
 
-export default Musical;
+export default ListItem;
