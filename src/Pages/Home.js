@@ -30,7 +30,7 @@ function Home() {
         </div>
         <Tags filterItems={filterItems} tags={tags}></Tags>
         <button
-          onClick={() => (window.localStorage.chosenItems = JSON.stringify([]))}
+          onClick={() => (window.localStorage.chosenIds = JSON.stringify([]))}
         >
           Clear My list
         </button>

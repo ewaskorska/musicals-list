@@ -9,8 +9,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./Pages/Navbar";
 import Home from "./Pages/Home";
 import Musical from "./Pages/Musical";
-import PersonalList from "./Pages/PersonalList";
 import Error from "./Pages/Error";
+import ContextList from "./ContextList";
 
 const ReactRouterSetup = () => {
   return (
@@ -24,7 +24,7 @@ const ReactRouterSetup = () => {
           <Musical />
         </Route>
         <Route path="/personal-list">
-          <PersonalList />
+          <ContextList />
         </Route>
         <Route path="*">
           <Error></Error>
