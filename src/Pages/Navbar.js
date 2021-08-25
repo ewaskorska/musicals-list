@@ -7,7 +7,7 @@ const Navbar = () => {
       <ul style={{ listStyleType: "none" }}>
         <li>
           <Link to="/">
-            <i class="fas fa-home"></i>
+            <i className="fas fa-home"></i>
           </Link>
         </li>
         <li>

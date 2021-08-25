@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Rating from "./Rating";
 
 const ListItem = (props) => {
   const { id, title, tags, img, desc } = props;
@@ -22,7 +23,7 @@ const ListItem = (props) => {
     } else {
       window.localStorage.chosenIds = JSON.stringify(removeId(chosenIds));
     }
-    console.log(window.localStorage.chosenIds);
+    console.log("chosenIds", window.localStorage.chosenIds);
   };
 
   const addId = (items) => {
@@ -53,6 +54,7 @@ const ListItem = (props) => {
           }
         ></i>
       </button>
+      <Rating id={id}></Rating>
       <Link to={url}>
         <article key={id}>
           <div>
@@ -60,7 +62,6 @@ const ListItem = (props) => {
           </div>
           <div>
             <header>
-              <div>*****</div>
               <h4>{title}</h4>
             </header>
             <p>{desc}</p>
