@@ -1,11 +1,11 @@
 import React from "react";
-import ListItem from "./ListItem";
+import MainListItem from "./MainListItem";
 
 const MainList = ({ items }) => {
   return (
     <div>
       {items.map((item) => {
-        return <ListItem key={item.id} {...item}></ListItem>;
+        return <MainListItem key={item.id} {...item}></MainListItem>;
       })}
     </div>
   );

@@ -8,7 +8,6 @@ const Rating = ({ id }) => {
 
   useEffect(() => {
     localStorage.setItem(JSON.stringify(id), JSON.stringify(rating));
-    console.log(localStorage);
   }, [rating]);
 
   return (
