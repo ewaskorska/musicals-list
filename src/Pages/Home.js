@@ -24,17 +24,13 @@ function Home() {
   return (
     <main>
       <section>
-        <div>
-          <h2>Fav Musicals List</h2>
-          <div className="underline"></div>
-        </div>
         <Tags filterItems={filterItems} tags={tags}></Tags>
         <button
           onClick={() => (window.localStorage.chosenIds = JSON.stringify([]))}
         >
           Clear My list
         </button>
-        <MainList items={listItems}></MainList>
+        <MainList items={listItems} listTitle="Fav Musicals List"></MainList>
       </section>
     </main>
   );

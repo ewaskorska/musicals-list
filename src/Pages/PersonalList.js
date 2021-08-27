@@ -1,20 +1,16 @@
 import React, { useContext } from "react";
 import PersonalListItem from "../PersonalListItem";
+import List from "../List";
 import { ListItemContext } from "../ContextList";
 
-const PersonalList = () => {
+const PersonalList = ({ items, listTitle }) => {
   const { list, clearList } = useContext(ListItemContext);
+  const listItem = (id, props) => <PersonalListItem key={id} {...props} />;
+
   return (
-    <>
-      <header>
-        <h2>Personal List</h2>
-        <div></div>
-      </header>
-      {list.map((item) => {
-        return <PersonalListItem key={item.id} {...item}></PersonalListItem>;
-      })}
+    <List items={list} listTitle={listTitle} listItem={listItem}>
       <button onClick={() => clearList()}>remove all</button>
-    </>
+    </List>
   );
 };
 
