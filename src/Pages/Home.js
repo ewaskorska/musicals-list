@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Tags from "../Tags";
-import MainList from "../MainList";
+import List from "../List";
+import MainListItem from "../MainListItem";
+
 import items from "../data";
 
 const allTags = ["all", ...new Set(items.map((item) => item.tags).flat())];
@@ -21,6 +23,8 @@ function Home() {
     setListItems(newItems);
   };
 
+  const listItem = (id, props) => <MainListItem key={id} {...props} />;
+
   return (
     <main>
       <section>
@@ -30,7 +34,11 @@ function Home() {
         >
           Clear My list
         </button>
-        <MainList items={listItems} listTitle="Fav Musicals List"></MainList>
+        <List
+          items={listItems}
+          listTitle="Fav Musicals List"
+          listItem={listItem}
+        />
       </section>
     </main>
   );

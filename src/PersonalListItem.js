@@ -1,14 +1,12 @@
-import React, { useContext, useState } from "react";
-import { ListItemContext } from "./ContextList";
+import React, { useState } from "react";
 import ListItem from "./ListItem";
 
 const PersonalListItem = (props) => {
-  const { id } = props;
-  const { removeItem } = useContext(ListItemContext);
+  console.log(props);
 
   return (
     <ListItem {...props}>
-      <button onClick={() => removeItem(id)}>not interested</button>
+      <button onClick={() => props.removeItem(props.id)}>not interested</button>
     </ListItem>
   );
 };

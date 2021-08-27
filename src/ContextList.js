@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import items from "./data";
 import PersonalList from "./Pages/PersonalList";
 
-export const ListItemContext = React.createContext();
-//two components - Provider, Consumer
-
 const ContextList = () => {
   const getPersonalList = () => {
     const chosenIds = JSON.parse(localStorage.chosenIds);
@@ -30,9 +27,12 @@ const ContextList = () => {
   }, [list]);
 
   return (
-    <ListItemContext.Provider value={{ removeItem, list, clearList }}>
-      <PersonalList></PersonalList>
-    </ListItemContext.Provider>
+    <PersonalList
+      listTitle="My Personal List"
+      removeItem={removeItem}
+      list={list}
+      clearList={clearList}
+    ></PersonalList>
   );
 };
 

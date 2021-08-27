@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import PersonalListItem from "../PersonalListItem";
 import List from "../List";
-import { ListItemContext } from "../ContextList";
 
-const PersonalList = ({ items, listTitle }) => {
-  const { list, clearList } = useContext(ListItemContext);
+const PersonalList = ({ listTitle, removeItem, list, clearList }) => {
   const listItem = (id, props) => <PersonalListItem key={id} {...props} />;
 
   return (
