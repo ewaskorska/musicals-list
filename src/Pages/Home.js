@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Tags from "../Tags";
 import List from "../List";
-import MainListItem from "../MainListItem";
+import ListItem from "../ListItem";
 
 import items from "../data";
 
@@ -23,16 +23,14 @@ function Home() {
     setListItems(newItems);
   };
 
-  const listItem = (id, props) => <MainListItem key={id} {...props} />;
+  const listItem = (id, props) => <ListItem key={id} {...props} />;
 
   return (
     <main>
       <section>
         <Tags filterItems={filterItems} tags={tags}></Tags>
-        <button
-          onClick={() => (window.localStorage.chosenIds = JSON.stringify([]))}
-        >
-          Clear My list
+        <button onClick={() => window.localStorage.clear()}>
+          Clear All Local Storage
         </button>
         <List
           items={listItems}

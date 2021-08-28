@@ -23,7 +23,10 @@ const ReactRouterSetup = () => {
         <Route path="/musical">
           <Musical />
         </Route>
-        <Route path="/personal-list">
+        <Route path="/watched">
+          <ContextList />
+        </Route>
+        <Route path="/to-watch">
           <ContextList />
         </Route>
         <Route path="*">

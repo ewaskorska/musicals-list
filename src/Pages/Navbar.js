@@ -11,7 +11,10 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/personal-list"> My list</Link>
+          <Link to="/watched">Watched</Link>
+        </li>
+        <li>
+          <Link to="/to-watch">To Watch</Link>
         </li>
       </ul>
     </nav>

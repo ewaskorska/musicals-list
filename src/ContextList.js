@@ -1,38 +1,41 @@
 import React, { useState, useEffect } from "react";
 import items from "./data";
-import PersonalList from "./Pages/PersonalList";
+import Watched from "./Pages/Watched";
 
 const ContextList = () => {
-  const getPersonalList = () => {
-    const chosenIds = JSON.parse(localStorage.chosenIds);
-    return items.filter((item) => chosenIds.includes(item.id));
+  const getList = (listName) => {
+    const storageIds = JSON.parse(localStorage.getItem(listName));
+    console.log(storageIds);
+    return !storageIds
+      ? []
+      : items.filter((item) => storageIds.includes(item.id));
   };
 
-  const [list, setList] = useState(getPersonalList());
+  const [watchedIds, setWatchedIds] = useState(getList("watchedIds"));
 
   const removeItem = (itemId) => {
-    setList((list, props) =>
-      list.filter((item) => {
+    setWatchedIds((watchedIds, props) =>
+      watchedIds.filter((item) => {
         return item.id !== itemId;
       })
     );
   };
 
   const clearList = () => {
-    setList((list) => []);
+    setWatchedIds(() => []);
   };
 
   useEffect(() => {
-    localStorage.chosenIds = JSON.stringify(list.map((item) => item.id));
-  }, [list]);
+    localStorage.watchedIds = JSON.stringify(watchedIds.map((item) => item.id));
+  }, [watchedIds]);
 
   return (
-    <PersonalList
-      listTitle="My Personal List"
+    <Watched
+      listTitle="Musicals I've seen"
       removeItem={removeItem}
-      list={list}
+      list={watchedIds}
       clearList={clearList}
-    ></PersonalList>
+    ></Watched>
   );
 };
 

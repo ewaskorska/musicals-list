@@ -4,11 +4,26 @@ import { FaHeart } from "react-icons/fa";
 const NUM_OF_HEARTS = 5;
 
 const Rating = ({ id }) => {
-  const [rating, setRating] = useState(null);
+  const getRating = () => JSON.parse(localStorage.getItem(JSON.stringify(id)));
+  const [rating, setRating] = useState(getRating() || null);
 
   useEffect(() => {
-    localStorage.setItem(JSON.stringify(id), JSON.stringify(rating));
+    if (rating === null) {
+      localStorage.removeItem(JSON.stringify(id));
+    } else {
+      localStorage.setItem(JSON.stringify(id), JSON.stringify(rating));
+    }
+    console.log(localStorage);
   }, [rating]);
+
+  const handleClick = (ratingValue) => {
+    const prevRating = JSON.parse(localStorage.getItem(JSON.stringify(id)));
+    if (prevRating === ratingValue) {
+      setRating(null);
+      return;
+    }
+    setRating(ratingValue);
+  };
 
   return (
     <div>
@@ -16,12 +31,11 @@ const Rating = ({ id }) => {
         const ratingValue = index + 1;
         return (
           <label key={index}>
-            {/* remember to hide radio buttons */}
             <input
               type="radio"
               name="rating"
-              value={ratingValue}
-              onClick={() => setRating(ratingValue)}
+              value={rating}
+              onClick={() => handleClick(ratingValue)} //() => setRating(ratingValue)
             />
             <FaHeart color={ratingValue <= rating ? "#c90a5a" : "lightgrey"} />
           </label>
