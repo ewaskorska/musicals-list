@@ -4,7 +4,7 @@ import Rating from "./Rating";
 import { FaEye } from "react-icons/fa";
 
 const ListItem = (props) => {
-  const { id, title, img, desc } = props;
+  const { id, title, img_small, desc } = props;
   const [showMore, setShowMore] = useState(false);
   const [isToWatch, setIsToWatch] = useState(false);
 
@@ -68,7 +68,7 @@ const ListItem = (props) => {
       <Link to={url}>
         <article key={id}>
           <div>
-            <img src={img} alt={title} />
+            <img src={img_small} alt={title} />
           </div>
           <div>
             <header>
