@@ -9,7 +9,7 @@ const allTags = ["all", ...new Set(items.map((item) => item.tags).flat())];
 
 function Home() {
   const [listItems, setListItems] = useState(items);
-  const [tags, setTags] = useState(allTags);
+  const [tags] = useState(allTags);
 
   //to filtrowanie można zrobić po wielu wyrazach. Na razie niech będzie po jednym ale z listy
   const filterItems = (tag) => {

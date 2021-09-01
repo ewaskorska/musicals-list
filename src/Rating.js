@@ -5,10 +5,10 @@ const NUM_OF_HEARTS = 5;
 
 const Rating = ({ id }) => {
   const getRating = () => JSON.parse(localStorage.getItem(JSON.stringify(id)));
-  const [rating, setRating] = useState(getRating() || null);
+  const [rating, setRating] = useState(getRating() || "");
 
   useEffect(() => {
-    if (rating === null) {
+    if (rating === "") {
       localStorage.removeItem(JSON.stringify(id));
     } else {
       localStorage.setItem(JSON.stringify(id), JSON.stringify(rating));
@@ -19,10 +19,10 @@ const Rating = ({ id }) => {
   const handleClick = (ratingValue) => {
     const prevRating = JSON.parse(localStorage.getItem(JSON.stringify(id)));
     if (prevRating === ratingValue) {
-      setRating(null);
+      setRating("");
       return;
     }
-    setRating(ratingValue);
+    setRating(ratingValue || "");
   };
 
   return (
@@ -35,7 +35,7 @@ const Rating = ({ id }) => {
               type="radio"
               name="rating"
               value={rating}
-              onClick={() => handleClick(ratingValue)} //() => setRating(ratingValue)
+              onClick={() => handleClick(ratingValue)}
             />
             <FaHeart color={ratingValue <= rating ? "#c90a5a" : "lightgrey"} />
           </label>

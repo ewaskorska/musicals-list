@@ -10,7 +10,8 @@ import Navbar from "./Pages/Navbar";
 import Home from "./Pages/Home";
 import Musical from "./Pages/Musical";
 import Error from "./Pages/Error";
-import ContextList from "./ContextList";
+import WatchedWrapper from "./WatchedWrapper";
+import ToWatchWrapper from "./ToWatchWrapper";
 
 const ReactRouterSetup = () => {
   return (
@@ -24,10 +25,10 @@ const ReactRouterSetup = () => {
           <Musical />
         </Route>
         <Route path="/watched">
-          <ContextList />
+          <WatchedWrapper />
         </Route>
         <Route path="/to-watch">
-          <ContextList />
+          <ToWatchWrapper />
         </Route>
         <Route path="*">
           <Error></Error>
