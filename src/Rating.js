@@ -19,6 +19,12 @@ const Rating = ({ id }) => {
   };
   const [rating, setRating] = useState(getRating());
 
+  const removeFromToWatch = () => {
+    const toWatch = JSON.parse(localStorage.getItem("toWatch"));
+    const updated = toWatch.filter((itemId) => id !== itemId);
+    localStorage.setItem("toWatch", updated);
+  };
+
   useEffect(() => {
     if (rating === -1) {
       //remove movie from storage
@@ -31,6 +37,9 @@ const Rating = ({ id }) => {
       const watched = JSON.parse(parsedVal === undefined ? "{}" : parsedVal);
       watched[id] = rating;
       localStorage.setItem("watched", JSON.stringify(watched));
+
+      //remove from toWatch
+      removeFromToWatch();
     }
     console.log(localStorage);
   }, [rating]);
