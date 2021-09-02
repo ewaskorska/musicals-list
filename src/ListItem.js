@@ -9,7 +9,7 @@ const ListItem = (props) => {
   const [isToWatch, setIsToWatch] = useState(false);
 
   const handleToWatch = () => {
-    updateList("toWatchIds");
+    updateList("toWatch");
     setIsToWatch(!isToWatch);
   };
 
