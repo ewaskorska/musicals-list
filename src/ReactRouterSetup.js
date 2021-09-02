@@ -27,9 +27,9 @@ const ReactRouterSetup = () => {
         <Route path="/watched">
           <WatchedWrapper />
         </Route>
-        <Route path="/to-watch">
+        {/* <Route path="/to-watch">
           <ToWatchWrapper />
-        </Route>
+        </Route> */}
         <Route path="*">
           <Error></Error>
         </Route>

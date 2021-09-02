@@ -3,8 +3,6 @@ import ListItem from "./ListItem";
 import { FaTrashAlt } from "react-icons/fa";
 
 const WatchedItem = (props) => {
-  console.log(props);
-
   return (
     <ListItem {...props}>
       <button onClick={() => props.removeItem(props.id)}>

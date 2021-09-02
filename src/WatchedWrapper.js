@@ -1,39 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import items from "./data";
 import Watched from "./Pages/Watched";
 
 const WatchedWrapper = () => {
-  const getList = (listName) => {
-    const storageIds = JSON.parse(localStorage.getItem(listName));
-    console.log(storageIds);
-    return !storageIds
-      ? []
-      : items.filter((item) => storageIds.includes(item.id));
+  const getWatchedIds = () => {
+    const parsedVal = localStorage.getItem("watched");
+    const watched = JSON.parse(parsedVal === undefined ? null : parsedVal);
+    return watched ? Object.keys(watched).map((el) => +el) : {};
   };
 
-  const [watchedIds, setWatchedIds] = useState(getList("watched"));
+  const [watchedIds, setWatchedIds] = useState(getWatchedIds());
 
+  //update watchedIds removing itemId
   const removeItem = (itemId) => {
     setWatchedIds((watchedIds, props) =>
-      watchedIds.filter((item) => {
-        return item.id !== itemId;
+      watchedIds.filter((id) => {
+        return id !== itemId;
       })
     );
+    //remove from localStorage item with given id
+    const watched = JSON.parse(localStorage.getItem("watched"));
+    delete watched[itemId];
+    localStorage.setItem("watched", JSON.stringify(watched));
   };
 
   const clearList = () => {
     setWatchedIds(() => []);
+    localStorage.setItem("watched", JSON.stringify({}));
   };
 
-  useEffect(() => {
-    localStorage.watchedIds = JSON.stringify(watchedIds.map((item) => item.id));
-  }, [watchedIds]);
+  const getSelectedItems = () => {
+    return items.filter((item) => watchedIds.includes(item.id));
+  };
 
   return (
     <Watched
       listTitle="Musicals I've seen"
       removeItem={removeItem}
-      list={watchedIds}
+      list={getSelectedItems()} //array of whole items
       clearList={clearList}
     ></Watched>
   );

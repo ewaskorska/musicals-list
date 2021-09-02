@@ -4,25 +4,45 @@ import { FaHeart } from "react-icons/fa";
 const NUM_OF_HEARTS = 5;
 
 const Rating = ({ id }) => {
-  const getRating = () => JSON.parse(localStorage.getItem(JSON.stringify(id)));
-  const [rating, setRating] = useState(getRating() || "");
+  const getRating = () => {
+    const parsedVal = localStorage.getItem("watched");
+    const watched = JSON.parse(parsedVal === undefined ? null : parsedVal);
+    let rate = -1;
+    if (watched) {
+      for (const [itemId, itemRating] of Object.entries(watched)) {
+        if (+itemId === id) {
+          rate = +itemRating;
+        } //uwaga, nie wiem, czy dobre typy
+      }
+    }
+    return rate;
+  };
+  const [rating, setRating] = useState(getRating());
 
   useEffect(() => {
-    if (rating === "") {
-      localStorage.removeItem(JSON.stringify(id));
+    if (rating === -1) {
+      //remove movie from storage
+      const watched = JSON.parse(localStorage.getItem("watched")) || {};
+      delete watched[id];
+      localStorage.setItem("watched", JSON.stringify(watched));
     } else {
-      localStorage.setItem(JSON.stringify(id), JSON.stringify(rating));
+      //add to storage
+      const parsedVal = localStorage.getItem("watched");
+      const watched = JSON.parse(parsedVal === undefined ? "{}" : parsedVal);
+      watched[id] = rating;
+      localStorage.setItem("watched", JSON.stringify(watched));
     }
     console.log(localStorage);
   }, [rating]);
 
   const handleClick = (ratingValue) => {
-    const prevRating = JSON.parse(localStorage.getItem(JSON.stringify(id)));
+    //get previous rating for id
+    const prevRating = getRating();
     if (prevRating === ratingValue) {
-      setRating("");
+      setRating(-1);
       return;
     }
-    setRating(ratingValue || "");
+    setRating(ratingValue);
   };
 
   return (

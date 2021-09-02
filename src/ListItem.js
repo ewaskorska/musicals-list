@@ -15,7 +15,7 @@ const ListItem = (props) => {
 
   const updateList = (listName) => {
     //get from localStorage
-    let storageIds = window.localStorage.getItem(listName);
+    let storageIds = localStorage.getItem(listName);
 
     //create if doesn't exist
     if (!storageIds) {
@@ -25,16 +25,13 @@ const ListItem = (props) => {
     }
     //if id doesn't exist -> add
     if (!containsId(storageIds)) {
-      window.localStorage.setItem(listName, JSON.stringify(addId(storageIds)));
+      localStorage.setItem(listName, JSON.stringify(addId(storageIds)));
     }
     //if exists -> remove
     else {
-      window.localStorage.setItem(
-        listName,
-        JSON.stringify(removeId(storageIds))
-      );
+      localStorage.setItem(listName, JSON.stringify(removeId(storageIds)));
     }
-    console.log(listName, window.localStorage.getItem(listName));
+    console.log(listName, localStorage.getItem(listName));
   };
 
   const addId = (items) => {

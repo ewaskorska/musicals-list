@@ -29,7 +29,7 @@ function Home() {
     <main>
       <section>
         <Tags filterItems={filterItems} tags={tags}></Tags>
-        <button onClick={() => window.localStorage.clear()}>
+        <button onClick={() => localStorage.clear()}>
           Clear All Local Storage
         </button>
         <List
