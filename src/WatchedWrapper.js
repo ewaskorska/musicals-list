@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import items from "./data";
 import Watched from "./Pages/Watched";
 
-const WatchedWrapper = () => {
+const WatchedWrapper = ({ items }) => {
   const getWatchedIds = () => {
     const parsedVal = localStorage.getItem("watched");
     const watched = JSON.parse(parsedVal === undefined ? null : parsedVal);

@@ -22,7 +22,7 @@ const Rating = ({ id }) => {
   const removeFromToWatch = () => {
     const toWatch = JSON.parse(localStorage.getItem("toWatch"));
     const updated = toWatch.filter((itemId) => id !== itemId);
-    localStorage.setItem("toWatch", updated);
+    localStorage.setItem("toWatch", JSON.stringify(updated));
   };
 
   useEffect(() => {
@@ -37,9 +37,6 @@ const Rating = ({ id }) => {
       const watched = JSON.parse(parsedVal === undefined ? "{}" : parsedVal);
       watched[id] = rating;
       localStorage.setItem("watched", JSON.stringify(watched));
-
-      //remove from toWatch
-      removeFromToWatch();
     }
     console.log(localStorage);
   }, [rating]);
@@ -52,6 +49,10 @@ const Rating = ({ id }) => {
       return;
     }
     setRating(ratingValue);
+    //remove from toWatch
+    console.log(localStorage.getItem("toWatch"));
+    removeFromToWatch();
+    console.log(localStorage.getItem("toWatch"));
   };
 
   return (

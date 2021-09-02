@@ -2,7 +2,7 @@ import React from "react";
 import WatchedItem from "../WatchedItem";
 import List from "../List";
 
-const ToWatched = ({ listTitle, removeItem, list, clearList }) => {
+const ToWatch = ({ listTitle, removeItem, list, clearList }) => {
   const listItem = (id, props) => <WatchedItem key={id} {...props} />;
 
   return (
@@ -12,4 +12,4 @@ const ToWatched = ({ listTitle, removeItem, list, clearList }) => {
   );
 };
 
-export default ToWatched;
+export default ToWatch;

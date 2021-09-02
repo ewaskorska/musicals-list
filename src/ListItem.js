@@ -45,10 +45,12 @@ const ListItem = (props) => {
   const containsId = (array) => {
     return array.includes(id);
   };
+
   const getTitleWithPlus = () => {
-    return title.replaceAll(" ", "+");
+    return title.replaceAll(" ", "-");
   };
-  const url = `/musical/${getTitleWithPlus()}`;
+
+  const url = `/musical/${id}-${getTitleWithPlus()}`;
 
   function truncate(str, wordsNum) {
     return str.split(" ").splice(0, wordsNum).join(" ").replace(/,\s*$/, "");

@@ -1,6 +1,6 @@
 //react
 import React from "react";
-// import ReactDOM from "react-dom";
+import items from "./data";
 
 //react router
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -19,16 +19,16 @@ const ReactRouterSetup = () => {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home items={items} />
         </Route>
-        <Route path="/musical">
-          <Musical />
+        <Route path="/musical/:params">
+          <Musical items={items} />
         </Route>
         <Route path="/watched">
-          <WatchedWrapper />
+          <WatchedWrapper items={items} />
         </Route>
         <Route path="/to-watch">
-          <ToWatchWrapper />
+          <ToWatchWrapper items={items} />
         </Route>
         <Route path="*">
           <Error></Error>

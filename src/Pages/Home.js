@@ -3,11 +3,8 @@ import Tags from "../Tags";
 import List from "../List";
 import ListItem from "../ListItem";
 
-import items from "../data";
-
-const allTags = ["all", ...new Set(items.map((item) => item.tags).flat())];
-
-function Home() {
+function Home({ items }) {
+  const allTags = ["all", ...new Set(items.map((item) => item.tags).flat())];
   const [listItems, setListItems] = useState(items);
   const [tags] = useState(allTags);
 
