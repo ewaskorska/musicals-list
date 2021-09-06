@@ -1,11 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Actors from "../Actors";
 
-const Musical = ({ items, actors }) => {
+const Musical = ({ items: musicals }) => {
   const { params } = useParams();
   const id = params.split("-")[0];
-  const item = items.filter((item) => item.id === +id)[0];
-  const { title, img_medium, desc } = item;
+  const musical = musicals.filter((musical) => musical.id === +id)[0];
+  const { title, img_medium, desc, cast } = musical;
+
   return (
     <div>
       <header>
@@ -13,7 +15,11 @@ const Musical = ({ items, actors }) => {
         <span>{title}</span>
       </header>
       <p>{desc}</p>
-      <section>Tu będzie ten slider</section>
+      <section>
+        <h2>Actors</h2>
+        <div></div>
+        <Actors cast={cast} />
+      </section>
     </div>
   );
 };

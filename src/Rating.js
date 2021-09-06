@@ -12,7 +12,7 @@ const Rating = ({ id }) => {
       for (const [itemId, itemRating] of Object.entries(watched)) {
         if (+itemId === id) {
           rate = +itemRating;
-        } //uwaga, nie wiem, czy dobre typy
+        }
       }
     }
     return rate;
