@@ -10,14 +10,9 @@ function Home({ items }) {
 
   //to filtrowanie można zrobić po wielu wyrazach. Na razie niech będzie po jednym ale z listy
   const filterItems = (tag) => {
-    if (tag === "all") {
-      setListItems(items);
-      return;
-    }
-    const newItems = items.filter((item) => {
-      return item.tags.includes(tag);
-    });
-    setListItems(newItems);
+    setListItems(() =>
+      tag === "all" ? items : items.filter((item) => item.tags.includes(tag))
+    );
   };
 
   const listItem = (id, props) => <ListItem key={id} {...props} />;

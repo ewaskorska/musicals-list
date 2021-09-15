@@ -13,6 +13,9 @@ import Error from "./Pages/Error";
 import WatchedWrapper from "./WatchedWrapper";
 import ToWatchWrapper from "./ToWatchWrapper";
 
+//styles
+import "../styles/styles.scss";
+
 const ReactRouterSetup = () => {
   return (
     <Router>

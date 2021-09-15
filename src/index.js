@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Setup from "./ReactRouterSetup";
+import Setup from "./components/ReactRouterSetup";
 
 ReactDOM.render(
   <React.StrictMode>
