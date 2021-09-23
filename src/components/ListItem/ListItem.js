@@ -61,39 +61,39 @@ const ListItem = ({ className, children, ...props }) => {
     return str.split(" ").splice(0, wordsNum).join(" ").replace(/,\s*$/, "");
   }
 
-  const toggleShowMore = () => setShowMore(!showMore);
+  const toggleShowMore = (e) => {
+    e.preventDefault();
+    setShowMore(!showMore);
+  };
 
   return (
-    <div className={clsx(className, styles.root)}>
-      <button onClick={handleToWatch}>
-        <FaEye />
-      </button>
-      <Rating id={id}></Rating>
-      <Link to={url}>
-        <article key={id}>
-          <div>
-            <img src={img_small} alt={title} />
-          </div>
-          <div>
-            <header>
-              <h4>{title}</h4>
-            </header>
-            {showMore ? (
-              <>
-                <p>{desc}</p>
-              </>
-            ) : (
-              <>
-                <p>{truncate(desc, 40) + "..."}</p>
-              </>
-            )}
-          </div>
-        </article>
+    <div className={clsx(className, styles.root, styles.card)}>
+      <section className={styles.photo}>
+        <button className={styles.toWatch} onClick={handleToWatch}>
+          <FaEye />
+        </button>
+        <Rating className={styles.rating} id={id}></Rating>
+        <Link to={url}>
+          <img src={img_small} alt={title} />
+        </Link>
+      </section>
+      <Link className={clsx(styles.info)} to={url}>
+        <header>
+          <h4 className={styles.title}>{title}</h4>
+        </header>
+        <section className={styles.description}>
+          <p>
+            {showMore ? desc : truncate(desc, 20) + "... "}
+            <button
+              className={styles.showDesc}
+              onClick={(e) => toggleShowMore(e)}
+            >
+              {showMore ? "show less" : "show more"}
+            </button>
+          </p>
+        </section>
       </Link>
-      <span>{props.children}</span>
-      <button onClick={() => toggleShowMore()}>
-        {showMore ? "show less" : "show more"}
-      </button>
+
       {children}
     </div>
   );
