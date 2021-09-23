@@ -1,7 +1,5 @@
-
 @media only screen and (max-width: 600px) {
     .navbar {
-        &.mobile {
             position: fixed;
             min-height: fit-content;
 
@@ -112,7 +110,6 @@
                         bottom: 10vh;
                     }
                 }
-            }
         }
     }
 

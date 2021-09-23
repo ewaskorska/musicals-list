@@ -31,7 +31,6 @@ const Navbar = ({ className, children }) => {
         className,
         styles.root,
         styles.navbar,
-        width > 600 ? "" : styles.mobile,
         isMenuOpen ? styles.opened : ""
       )}
     >
@@ -55,35 +54,37 @@ const Navbar = ({ className, children }) => {
           />
         </>
       )}
-      {width < 600 && (
-        <>
-          <ul className={styles.menu} style={{ listStyleType: "none" }}>
-            <li className={clsx(styles.menuOption, styles.current)}>
-              <NavLink exact activeClassName={styles.active} to="/">
-                Home
-              </NavLink>
-            </li>
-            <li className={clsx(styles.menuOption)}>
-              <NavLink activeClassName={styles.active} to="/watched">
-                Watched
-              </NavLink>
-            </li>
-            <li className={clsx(styles.menuOption)}>
-              <NavLink activeClassName={styles.active} to="/to-watch">
-                To Watch
-              </NavLink>
-            </li>
-          </ul>
-          <div
-            className={clsx(styles.menuClose, styles.btn)}
-            onClick={toggleMenu}
-          >
-            <i
-              className={` ${styles.FaTimesCircle} far fa-times-circle fa-3x`}
-            ></i>
-          </div>
-        </>
-      )}
+      <>
+        <ul
+          className={styles.menu}
+          style={{ listStyleType: "none" }}
+          onClick={toggleMenu}
+        >
+          <li className={clsx(styles.menuOption, styles.current)}>
+            <NavLink exact activeClassName={styles.active} to="/">
+              Home
+            </NavLink>
+          </li>
+          <li className={clsx(styles.menuOption)}>
+            <NavLink activeClassName={styles.active} to="/watched">
+              Watched
+            </NavLink>
+          </li>
+          <li className={clsx(styles.menuOption)}>
+            <NavLink activeClassName={styles.active} to="/to-watch">
+              To Watch
+            </NavLink>
+          </li>
+        </ul>
+        <div
+          className={clsx(styles.menuClose, styles.btn)}
+          onClick={toggleMenu}
+        >
+          <i
+            className={` ${styles.FaTimesCircle} far fa-times-circle fa-3x`}
+          ></i>
+        </div>
+      </>
       {children}
     </nav>
   );
