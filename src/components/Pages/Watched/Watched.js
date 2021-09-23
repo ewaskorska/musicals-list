@@ -16,7 +16,7 @@ const Watched = ({
   children,
 }) => {
   const listItem = (id, props) => (
-    <WatchedItem key={id} removeItem={removeItem} {...props} />
+    <WatchedItem key={id} removeItem={removeItem} props={props} />
   );
   return (
     <List

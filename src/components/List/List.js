@@ -13,7 +13,9 @@ const List = ({ items, listTitle, listItem, className, children }) => {
         <div className={styles.underline}></div>
       </div>
       {children}
-      {items.map((item) => listItem(item.id, { ...item }))}
+      {items.map((item) => {
+        return listItem(item.id, item);
+      })}
     </div>
   );
 };
