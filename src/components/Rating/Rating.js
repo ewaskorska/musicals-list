@@ -69,7 +69,6 @@ const Rating = ({ id, className, children }) => {
 
   const closeIfOutside = (event) => {
     //set false only if outside of element
-    console.log("ratingRef", ratingRef);
     if (!ratingRef?.current?.contains(event.target)) {
       setIsOpen(() => false);
     }

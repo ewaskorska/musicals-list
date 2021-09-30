@@ -11,7 +11,11 @@ import styles from "./list_item.module.scss";
 const ListItem = ({ className, children, ...props }) => {
   const { id, title, img_small, desc } = props;
   const [showMore, setShowMore] = useState(false);
-  const [isToWatch, setIsToWatch] = useState(false);
+
+  const getIsToWatch = () =>
+    JSON.parse(localStorage?.toWatch)?.includes(id) || false;
+
+  const [isToWatch, setIsToWatch] = useState(getIsToWatch());
 
   const handleToWatch = () => {
     updateList("toWatch");
@@ -66,10 +70,17 @@ const ListItem = ({ className, children, ...props }) => {
     setShowMore(!showMore);
   };
 
+  const getEyeColor = () =>
+    isToWatch ? "var(--yellow-orange)" : "var(--grey)";
+
   return (
     <div className={clsx(className, styles.root, styles.card)}>
       <section className={styles.photo}>
-        <button className={styles.toWatch} onClick={handleToWatch}>
+        <button
+          className={styles.toWatch}
+          onClick={handleToWatch}
+          style={{ color: getEyeColor() }}
+        >
           <FaEye />
         </button>
         <Rating className={styles.rating} id={id}></Rating>

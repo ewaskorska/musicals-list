@@ -58,12 +58,15 @@
         &.collapsed {
 
             .ratingHearts {
-                // transition: all .7s ease-in-out;
                 right: 42.5vw;
 
                 .heartLabel {
                     position: relative;
-                    // transition: all .7s ease-in-out;
+
+                    .heartIcon.marked {
+                        color: var(--magenta-dark);
+                        transition: color .7s linear;
+                    }
                 }
                 
                 .heartLabel:nth-child(1) {
