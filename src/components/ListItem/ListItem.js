@@ -83,7 +83,7 @@ const ListItem = ({ className, children, ...props }) => {
         </header>
         <section className={styles.description}>
           <p>
-            {showMore ? desc : truncate(desc, 20) + "... "}
+            {showMore ? desc + " " : truncate(desc, 20) + "... "}
             <button
               className={styles.showDesc}
               onClick={(e) => toggleShowMore(e)}

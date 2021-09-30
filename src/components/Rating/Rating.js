@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { FaHeart } from "react-icons/fa";
 
@@ -47,6 +47,9 @@ const Rating = ({ id, className, children }) => {
   }, [rating]);
 
   const handleClick = (ratingValue) => {
+    //close modal
+    setIsOpen(() => false);
+
     //get previous rating for id
     const prevRating = getRating();
     if (prevRating === ratingValue) {
@@ -60,22 +63,60 @@ const Rating = ({ id, className, children }) => {
     console.log(localStorage.getItem("toWatch"));
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const ratingRef = useRef();
+
+  const closeIfOutside = (event) => {
+    //set false only if outside of element
+    console.log("ratingRef", ratingRef);
+    if (!ratingRef?.current?.contains(event.target)) {
+      setIsOpen(() => false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("touchend", (event) => closeIfOutside(event));
+    return () => {
+      document.removeEventListener("touchend", (event) =>
+        closeIfOutside(event)
+      );
+    };
+  });
+
   return (
-    <div className={clsx(className, styles.root)}>
-      {[...Array(NUM_OF_HEARTS)].map((star, index) => {
-        const ratingValue = index + 1;
-        return (
-          <label key={index}>
-            <input
-              type="radio"
-              name="rating"
-              value={rating}
-              onClick={() => handleClick(ratingValue)}
-            />
-            <FaHeart color={ratingValue <= rating ? "#c90a5a" : "lightgrey"} />
-          </label>
-        );
-      })}
+    <div
+      className={clsx(
+        className,
+        styles.root,
+        `${isOpen ? styles.open : styles.collapsed}`
+      )}
+      ref={ratingRef}
+    >
+      <div className={clsx(styles.ratingHearts)}>
+        {[...Array(NUM_OF_HEARTS)].map((star, index) => {
+          const ratingValue = index + 1;
+          return (
+            <label key={index} className={styles.heartLabel}>
+              <input
+                type="radio"
+                name="rating"
+                value={rating}
+                onClick={() => handleClick(ratingValue)}
+              />
+              <FaHeart
+                className={clsx(
+                  styles.heartIcon,
+                  `${ratingValue <= rating ? styles.marked : styles.unmarked}`
+                )}
+              />
+            </label>
+          );
+        })}
+      </div>
+      <p className={clsx(styles.number)} onClick={() => setIsOpen(!isOpen)}>
+        {rating === -1 ? 0 : rating}
+      </p>
       {children}
     </div>
   );
