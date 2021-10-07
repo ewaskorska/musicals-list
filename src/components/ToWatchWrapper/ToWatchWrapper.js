@@ -15,17 +15,6 @@ const ToWatchWrapper = ({ items, className, children }) => {
 
   const [toWatch, setToWatch] = useState(getToWatch());
 
-  //update toWatch removing itemId
-  const removeItem = (itemId) => {
-    setToWatch((toWatch, props) =>
-      toWatch.filter((id) => {
-        return id !== itemId;
-      })
-    );
-    //update localStorage
-    localStorage.setItem("toWatch", JSON.stringify(toWatch));
-  };
-
   const clearList = () => {
     setToWatch(() => []);
     localStorage.setItem("toWatch", JSON.stringify(toWatch));
@@ -38,7 +27,6 @@ const ToWatchWrapper = ({ items, className, children }) => {
     <Watched
       className={clsx(className, styles.root)}
       listTitle="Dying to see"
-      removeItem={removeItem}
       list={getSelectedItems()} //array of whole items
       clearList={clearList}
     >

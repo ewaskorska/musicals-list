@@ -73,9 +73,10 @@ const ListItem = ({ className, children, ...props }) => {
   const getEyeColor = () =>
     isToWatch ? "var(--yellow-orange)" : "var(--grey)";
 
-  return (
-    <div className={clsx(className, styles.root, styles.card)}>
-      <section className={styles.photo}>
+  const getOptions = () => {
+    console.log("children", children);
+    if (children === undefined) {
+      return (
         <button
           className={styles.toWatch}
           onClick={handleToWatch}
@@ -83,6 +84,23 @@ const ListItem = ({ className, children, ...props }) => {
         >
           <FaEye />
         </button>
+      );
+    }
+    return (
+      <button
+        className={styles.toWatch}
+        onClick={handleToWatch}
+        style={{ color: getEyeColor() }}
+      >
+        <FaEye />
+      </button>
+    );
+  };
+
+  return (
+    <div className={clsx(className, styles.root, styles.card)}>
+      <section className={styles.photo}>
+        {getOptions()}
         <Rating className={styles.rating} id={id}></Rating>
         <Link to={url}>
           <img src={img_small} alt={title} />
@@ -104,8 +122,6 @@ const ListItem = ({ className, children, ...props }) => {
           </p>
         </section>
       </Link>
-
-      {children}
     </div>
   );
 };

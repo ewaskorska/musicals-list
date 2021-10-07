@@ -8,21 +8,8 @@ import clsx from "clsx";
 
 import styles from "./watched.module.scss";
 
-const Watched = ({
-  listTitle,
-  removeItem,
-  list,
-  clearList,
-  className,
-  children,
-}) => {
-  const listItem = (id, props) => (
-    <WatchedItem key={id} props={props}>
-      <button onClick={() => removeItem(props.id)}>
-        <FaTrashAlt />
-      </button>
-    </WatchedItem>
-  );
+const Watched = ({ listTitle, list, clearList, className, children }) => {
+  const listItem = (id, props) => <WatchedItem key={id} props={props} />;
   return (
     <List
       className={clsx(className, styles.root)}
