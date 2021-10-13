@@ -2,7 +2,7 @@ const musicals = [
   {
     id: 1,
     title: "next to normal",
-    tags: ["broadway", "drama"],
+    tags: ["drama"],
     img_small: "./images/next-to-normal-small.png",
     img_medium: "http://127.0.0.1:8887/images/next-to-normal-medium.png",
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi doloremque assumenda, suscipit officia id quaerat dolore consequatur nisi facilis laudantium blanditiis nesciunt nihil perspiciatis enim, ipsa iste a officiis velit unde earum voluptatibus veniam accusantium. Quibusdam iusto molestias tempora minus, nemo aliquam optio, labore ad harum quos beatae? Dolorum quaerat eveniet quae aspernatur facilis labore similique pariatur quos rerum repudiandae. Inventore illo at cum perferendis maiores eum et natus sapiente?",
@@ -11,7 +11,7 @@ const musicals = [
   {
     id: 2,
     title: "The Lion King",
-    tags: ["broadway", "family"],
+    tags: ["family"],
     img_small: "./images/the-lion-king-small.png",
     img_medium: "http://127.0.0.1:8887/images/the-lion-king-medium.png",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla error quisquam, at ex soluta, cumque excepturi assumenda deleniti debitis perferendis non fugit aliquid recusandae quia commodi iste cum quasi pariatur voluptas veniam consequuntur culpa quod doloribus. Corporis fugit quibusdam voluptate aspernatur. Suscipit nostrum in inventore, consectetur adipisci voluptates dicta, quidem, libero molestias deleniti amet iste. Consequuntur iusto similique quibusdam doloremque?",
@@ -20,7 +20,7 @@ const musicals = [
   {
     id: 3,
     title: "Into The Woods",
-    tags: ["broadway", "with movie adaptation", "Sondheim"],
+    tags: ["with movie adaptation", "Sondheim"],
     img_small: "./images/into-the-woods-small.png",
     img_medium: "http://127.0.0.1:8887/images/into-the-woods-medium.png",
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi doloremque assumenda, suscipit officia id quaerat dolore consequatur nisi facilis laudantium blanditiis nesciunt nihil perspiciatis enim, ipsa iste a officiis velit unde earum voluptatibus veniam accusantium. Quibusdam iusto molestias tempora minus, nemo aliquam optio, labore ad harum quos beatae? Dolorum quaerat eveniet quae aspernatur facilis labore similique pariatur quos rerum repudiandae. Inventore illo at cum perferendis maiores eum et natus sapiente?",
@@ -29,7 +29,7 @@ const musicals = [
   {
     id: 4,
     title: "Company",
-    tags: ["broadway", "Sondheim", "comedy", "drama"],
+    tags: ["Sondheim", "comedy", "drama"],
     img_small: "./images/company-small.png",
     img_medium: "http://127.0.0.1:8887/images/company-medium.png",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla error quisquam, at ex soluta, cumque excepturi assumenda deleniti debitis perferendis non fugit aliquid recusandae quia commodi iste cum quasi pariatur voluptas veniam consequuntur culpa quod doloribus. Corporis fugit quibusdam voluptate aspernatur. Suscipit nostrum in inventore, consectetur adipisci voluptates dicta, quidem, libero molestias deleniti amet iste. Consequuntur iusto similique quibusdam doloremque?",
@@ -38,7 +38,7 @@ const musicals = [
   {
     id: 5,
     title: "Dear Evan Hansen",
-    tags: ["broadway", "with movie adaptation"],
+    tags: ["with movie adaptation"],
     img_small: "./images/dear-evan-hansen-small.png",
     img_medium: "http://127.0.0.1:8887/images/dear-evan-hansen-medium.png",
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi doloremque assumenda, suscipit officia id quaerat dolore consequatur nisi facilis laudantium blanditiis nesciunt nihil perspiciatis enim, ipsa iste a officiis velit unde earum voluptatibus veniam accusantium. Quibusdam iusto molestias tempora minus, nemo aliquam optio, labore ad harum quos beatae? Dolorum quaerat eveniet quae aspernatur facilis labore similique pariatur quos rerum repudiandae. Inventore illo at cum perferendis maiores eum et natus sapiente?",
@@ -47,7 +47,7 @@ const musicals = [
   {
     id: 6,
     title: "Falsettos",
-    tags: ["broadway", "comedy", "drama"],
+    tags: ["comedy", "drama"],
     img_small: "./images/falsettos-small.png",
     img_medium: "http://127.0.0.1:8887/images/falsettos-medium.png",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla error quisquam, at ex soluta, cumque excepturi assumenda deleniti debitis perferendis non fugit aliquid recusandae quia commodi iste cum quasi pariatur voluptas veniam consequuntur culpa quod doloribus. Corporis fugit quibusdam voluptate aspernatur. Suscipit nostrum in inventore, consectetur adipisci voluptates dicta, quidem, libero molestias deleniti amet iste. Consequuntur iusto similique quibusdam doloremque?",
@@ -56,7 +56,7 @@ const musicals = [
   {
     id: 7,
     title: "Matilda",
-    tags: ["broadway", "family", "comedy"],
+    tags: ["family", "comedy"],
     img_small: "./images/matilda-small.png",
     img_medium: "http://127.0.0.1:8887/images/matilda-medium.png",
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi doloremque assumenda, suscipit officia id quaerat dolore consequatur nisi facilis laudantium blanditiis nesciunt nihil perspiciatis enim, ipsa iste a officiis velit unde earum voluptatibus veniam accusantium. Quibusdam iusto molestias tempora minus, nemo aliquam optio, labore ad harum quos beatae? Dolorum quaerat eveniet quae aspernatur facilis labore similique pariatur quos rerum repudiandae. Inventore illo at cum perferendis maiores eum et natus sapiente?",
@@ -65,7 +65,7 @@ const musicals = [
   {
     id: 8,
     title: "Sunday In The Park With George",
-    tags: ["broadway", "drama", "Sondheim"],
+    tags: ["drama", "Sondheim"],
     img_small: "./images/sunday-in-the-park-with-george-small.png",
     img_medium:
       "http://127.0.0.1:8887/images/sunday-in-the-park-with-george-medium.png",

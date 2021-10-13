@@ -25,9 +25,6 @@ const Home = ({ items, className, children }) => {
   return (
     <main className={clsx(className, styles.root)}>
       <section>
-        {/* <button onClick={() => localStorage.clear()}>
-          Clear All Local Storage
-        </button> */}
         <List
           items={listItems}
           listTitle="Fav Musicals List"

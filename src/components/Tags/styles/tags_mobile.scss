@@ -1,0 +1,95 @@
+@media only screen and (max-width: 600px) {
+
+    .root {
+        z-index: 10;
+        position: fixed;
+        top: 20vh;
+
+        .filters {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: var(--fulvous);
+            color: var(--magenta-dark);
+            padding-right: .5em;
+            padding-left: 1.3em;
+            border-radius: 0 10px 10px 0;
+            height: 8vh;
+            width: 12vw;
+            transition: all .3s ease-in-out;
+
+            .searchbox {
+                visibility: hidden;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                input {
+                    width: 80%;
+                    border-radius: 5px;
+                    border-width: 1px;
+                }
+            }
+        }
+
+        .tags {
+            overflow: scroll;
+            height: 50vh;
+            width: 0;
+            transition: all .3s ease-in-out;
+
+            * {
+                visibility: hidden;
+            }
+        }
+
+        &.open {
+            width: 70vw;
+            
+            .filters {
+                width: 100%;
+                border-radius: 0 10px 0 0;
+                padding-left: .5em;
+
+                .searchbox {
+                    visibility: visible;
+                }
+
+                > i {
+                    transform: rotate(180deg);
+                    padding-right: .5em;
+                }
+            }
+
+            .tags {          
+                display: flex;
+                flex-direction: column;
+                align-items:flex-end;
+                width: 100%;
+                background-color: var(--yellow-orange);
+                padding: 0 10% 0 5%;
+                border-radius: 0 0 10px 0;
+
+                button {
+                    visibility: visible;
+                    width: 100%;
+                    background-color: transparent;
+                    margin-top: .5em;
+                    text-align: start;
+                    color: var(--isabelling);
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: bold;
+                    text-shadow: 1px 2px 4px rgba(0,0,0,0.6);
+                    border: none;
+                    border-bottom: 1px var(--royal-blue-dark) solid;
+                }
+
+                button:last-child {
+                    border: none;
+                }
+            }
+        }
+    }
+    
+}
