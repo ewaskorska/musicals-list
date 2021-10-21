@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import WatchedItem from "../../WatchedItem/WatchedItem";
 import List from "../../List/List";
-import { FaTrashAlt } from "react-icons/fa";
 
 import clsx from "clsx";
 

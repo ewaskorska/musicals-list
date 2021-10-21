@@ -2,7 +2,7 @@ const musicals = [
   {
     id: 1,
     title: "next to normal",
-    tags: ["drama"],
+    tags: ["drama", "Hania", "Sanio", "Ewa", "Iga"],
     img_small: "./images/next-to-normal-small.png",
     img_medium: "http://127.0.0.1:8887/images/next-to-normal-medium.png",
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi doloremque assumenda, suscipit officia id quaerat dolore consequatur nisi facilis laudantium blanditiis nesciunt nihil perspiciatis enim, ipsa iste a officiis velit unde earum voluptatibus veniam accusantium. Quibusdam iusto molestias tempora minus, nemo aliquam optio, labore ad harum quos beatae? Dolorum quaerat eveniet quae aspernatur facilis labore similique pariatur quos rerum repudiandae. Inventore illo at cum perferendis maiores eum et natus sapiente?",

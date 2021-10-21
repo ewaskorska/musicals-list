@@ -14,7 +14,7 @@ const Musical = ({ items: musicals, className, children }) => {
   const { title, img_medium, desc, cast } = musical;
 
   return (
-    <div className={clsx(className, styles.root)}>
+    <div className={clsx(className, styles.root)} id="musical">
       <header>
         <img src={img_medium} alt={img_medium} />
         <span>{title}</span>

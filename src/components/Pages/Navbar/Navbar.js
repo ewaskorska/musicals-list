@@ -80,9 +80,9 @@ const Navbar = ({ className, children }) => {
           className={clsx(styles.menuClose, styles.btn)}
           onClick={toggleMenu}
         >
-          <i
-            className={` ${styles.FaTimesCircle} far fa-times-circle fa-3x`}
-          ></i>
+          <div className={styles.closeButton}>
+            <i className="fas fa-times"></i>
+          </div>
         </div>
       </>
       {children}

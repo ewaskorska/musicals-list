@@ -1,0 +1,20 @@
+@media only screen and (max-width: 600px) {
+    .anchor {
+        position: fixed;
+        right: 5vw;
+        bottom: 5vh;
+        height: 9vh;
+        width: 9vh;
+        border-radius: 50%;
+        background-color: var(--yellow);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+
+        * {
+            transform: scale(2.5);
+            color: var(--yellow-orange);
+        }
+    }
+}

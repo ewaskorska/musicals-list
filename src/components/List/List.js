@@ -7,10 +7,9 @@ import styles from "./list.module.scss";
 
 const List = ({ items, listTitle, listItem, className, children }) => {
   return (
-    <div className={clsx(className, styles.root)}>
-      <div>
-        <h2>{listTitle}</h2>
-        <div className={styles.underline}></div>
+    <div className={clsx(className, styles.root)} id="watched">
+      <div className={styles.header}>
+        <h2 className={styles.title}>{listTitle}</h2>
       </div>
       {children}
       {items.map((item) => {

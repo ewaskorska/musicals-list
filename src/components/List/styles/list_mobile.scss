@@ -1,0 +1,20 @@
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: var(--pink-white);
+    }
+
+    .header {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+
+        .title {
+            max-width: 62vw;
+            text-align: center;
+            font: 2em 'Lato', sans-serif;
+            font-weight: 900;
+            color: var(--logo-blue);
+            margin-top: .8em;
+        }
+    }
+}

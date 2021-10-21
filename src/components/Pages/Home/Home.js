@@ -13,7 +13,6 @@ const Home = ({ items, className, children }) => {
   const [listItems, setListItems] = useState(items);
   const [tags] = useState(allTags);
 
-  //to filtrowanie można zrobić po wielu wyrazach. Na razie niech będzie po jednym ale z listy
   const filterItems = (tag) => {
     setListItems(() =>
       tag === "all" ? items : items.filter((item) => item.tags.includes(tag))
@@ -23,13 +22,9 @@ const Home = ({ items, className, children }) => {
   const listItem = (id, props) => <ListItem key={id} {...props} />;
 
   return (
-    <main className={clsx(className, styles.root)}>
+    <main className={clsx(className, styles.root)} id="home">
       <section>
-        <List
-          items={listItems}
-          listTitle="Fav Musicals List"
-          listItem={listItem}
-        >
+        <List items={listItems} listTitle="All Musicals" listItem={listItem}>
           <Tags filterItems={filterItems} tags={tags}></Tags>
         </List>
       </section>
